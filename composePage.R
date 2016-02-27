@@ -52,6 +52,6 @@ OSSComposePage <- function(type="rds"){
     }
     page <- append(page,"</body>")
     page <- append(page,"</html>")
-    writeLines(page,"page.html")
+    writeLines(page,"index.html")
     return(page)
 }

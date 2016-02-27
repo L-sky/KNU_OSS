@@ -15,6 +15,7 @@ OSSComposePage <- function(type="rds"){
     page <- append(page,"<title>онкнфеммъ опн ярсдемряэйе яюлнбпъдсбюммъ с йх╞бяэйнлс мюж╡нмюкэмнлс см╡бепяхрер╡ ╡лем╡ рюпюяю ьебвемйю</title>")
     page <- append(page,"</head>")
     page <- append(page,"<body>")
+    page <- append(page,"<div style=\"width:800px\">")
     page <- append(page,"<h2 style=\"text-align:center\">онкнфеммъ опн ярсдемряэйе яюлнбпъдсбюммъ с йх╞бяэйнлс мюж╡нмюкэмнлс см╡бепяхрер╡ ╡лем╡ рюпюяю ьебвемйю</h2><br>")
     page <- append(page,"<h2 style=\"text-align:center; margin-bottom:0px\">гЛЁЯР</h2><br>")
     for(i in 1:dim(oss_frame)[1]){
@@ -31,8 +32,6 @@ OSSComposePage <- function(type="rds"){
             }
         }
     }
-    
-    page <- append(page,"<div style=\"width:800px\">")
     
     for(i in 1:dim(oss_frame)[1]){
         subpart <- oss_frame$subpart[i]

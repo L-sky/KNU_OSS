@@ -12,7 +12,7 @@ OSSComposePage <- function(type="rds"){
     page <- append(page,"<html>")
     page <- append(page,"<head>")
     page <- append(page,"<meta charset=\"utf-8\">")
-    page <- append(page,"<title>ПОЛОЖЕННЯ ПРО СТУДЕНТСЬКЕ САМОВРЯДУВАННЯ У КИЇВСЬКОМУ НАЦІОНАЛЬНОМУ УНІВЕРСИТЕТІ ІМЕНІ ТАРАСА ШЕВЧЕНКА</title>")
+    page <- append(page,"<title>Положення про студентське самоврядування у Київському національному університеті імені Тараса Шевченка</title>")
     page <- append(page,"</head>")
     page <- append(page,"<body>")
     page <- append(page,"<div style=\"width:800px;margin-left:20px\">")

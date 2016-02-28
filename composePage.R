@@ -10,14 +10,24 @@ OSSComposePage <- function(type="rds"){
     page <- character()
     page <- append(page,"<!DOCTYPE html>")
     page <- append(page,"<html>")
+    
     page <- append(page,"<head>")
     page <- append(page,"<meta charset=\"utf-8\">")
-    page <- append(page,"<title>ПОЛОЖЕННЯ ПРО СТУДЕНТСЬКЕ САМОВРЯДУВАННЯ У КИЇВСЬКОМУ НАЦІОНАЛЬНОМУ УНІВЕРСИТЕТІ ІМЕНІ ТАРАСА ШЕВЧЕНКА</title>")
+    page <- append(page,"<title>Положення про студентське самоврядування у Київському національному університеті імені Тараса Шевченка</title>")
+    page <- append(page,"<style>")
+    page <- append(page,"h1, h2, h3, h4, h5, h6 {text-align: center;}")
+    page <- append(page,".wrapper {width: 800px; margin-left: 20px;}")
+    page <- append(page,".chapter {margin-bottom:0px;}")
+    page <- append(page,".act {font-size: 20px; font-weight: bold;}")
+    page <- append(page,".part { }")
+    page <- append(page, ".subpart {margin-left: 40px;}")
+    page <- append(page,"</style>")
     page <- append(page,"</head>")
+    
     page <- append(page,"<body>")
-    page <- append(page,"<div style=\"width:800px;margin-left:20px\">")
-    page <- append(page,"<h2 style=\"text-align:center\">ПОЛОЖЕННЯ ПРО СТУДЕНТСЬКЕ САМОВРЯДУВАННЯ У КИЇВСЬКОМУ НАЦІОНАЛЬНОМУ УНІВЕРСИТЕТІ ІМЕНІ ТАРАСА ШЕВЧЕНКА</h2><br>")
-    page <- append(page,"<h2 style=\"text-align:center;margin-bottom:0px\">Зміст</h2><br>")
+    page <- append(page,"<div class=\"wrapper\">")
+    page <- append(page,"<h2>ПОЛОЖЕННЯ ПРО СТУДЕНТСЬКЕ САМОВРЯДУВАННЯ У КИЇВСЬКОМУ НАЦІОНАЛЬНОМУ УНІВЕРСИТЕТІ ІМЕНІ ТАРАСА ШЕВЧЕНКА</h2><br>")
+    page <- append(page,"<h2 class=\"chapter\">Зміст</h2><br>")
     for(i in 1:dim(oss_frame)[1]){
         subpart <- oss_frame$subpart[i]
         part <- oss_frame$part[i]
@@ -26,9 +36,9 @@ OSSComposePage <- function(type="rds"){
         text <- oss_frame$text[i]
         if(subpart==0 & part==0){
             if(act!=0){
-                page <- append(page,paste0("<a href=\"#",chapter,".",act,"\">","<div style=\"margin-left=40xp\">","Глава ",chapter,".",act,". ",text,"</div></a><br>"))
+                page <- append(page,paste0("<a href=\"#",chapter,".",act,"\">","<div>","Глава ",chapter,".",act,". ",text,"</div></a><br>"))
             } else if(chapter!=0){
-                page <- append(page,paste0("<a href=\"#",chapter,"\">","<h4>","Розділ ",chapter,". ",text,"</h4></a><br>"))
+                page <- append(page,paste0("<a href=\"#",chapter,"\">","<h4 class=\"chapter\">","Розділ ",chapter,". ",text,"</h4></a><br>"))
             }
         }
     }
@@ -40,13 +50,13 @@ OSSComposePage <- function(type="rds"){
         chapter <- oss_frame$chapter[i]
         text <- oss_frame$text[i]
         if(subpart!=0){
-            page <- append(page,paste0("<div class=\"subpart\" style=\"margin-left:40px\">",subpart,") ",text,"</div><br>",collapse=""))
+            page <- append(page,paste0("<div class=\"subpart\">",subpart,") ",text,"</div><br>",collapse=""))
         } else if(part!=0){
             page <- append(page,paste0("<div class=\"part\">",chapter,".",act,".",part,". ",text,"</div><br>",collapse=""))
         } else if(act!=0){
-            page <- append(page,paste0("<div class=\"act\" style=\"font-size:20px\" id=\"",chapter,".",act,"\">","<b>Глава ",chapter,".",act,". ",text,"</b></div><hr>",collapse=""))
+            page <- append(page,paste0("<div class=\"act\" id=\"",chapter,".",act,"\">","Глава ",chapter,".",act,". ",text,"</div><hr>",collapse=""))
         } else if(chapter!=0){
-            page <- append(page,paste0("<h2 class=\"chapter\" style=\"text-align:center;margin-bottom:0px;\" id=\"",chapter,"\">","Розділ ",chapter,". ",text,"</h2><br>",collapse=""))
+            page <- append(page,paste0("<h2 class=\"chapter\" id=\"",chapter,"\">","Розділ ",chapter,". ",text,"</h2><br>",collapse=""))
         }
     }
     page <- append(page,"</div>")
